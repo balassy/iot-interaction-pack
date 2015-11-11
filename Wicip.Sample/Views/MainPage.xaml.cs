@@ -2,7 +2,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Sample.Views
+namespace Wicip.Sample.Views
 {
 	public sealed partial class MainPage : Page
 	{
