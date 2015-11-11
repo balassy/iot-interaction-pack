@@ -1,4 +1,4 @@
-﻿# Windows IoT Interaction Pack
+﻿# Windows IoT Core Interaction Pack (WICIP)
 
 The Windows IoT Interaction Pack provides reusable components for Windows Universal Applications that target the Windows IoT Core platform.
 
