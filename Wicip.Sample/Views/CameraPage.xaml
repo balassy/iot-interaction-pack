@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="Wicip.Sample.Views.CameraPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wicip.Sample.Views"
+		xmlns:Behaviors="using:Template10.Behaviors"
+		xmlns:Controls="using:Template10.Controls"
+		xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"	
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="Camera">
+			<!-- Hide the ellipsis menu on the right side of the PageHeader -->
+			<Interactivity:Interaction.Behaviors>
+				<Behaviors:EllipsisBehavior Visibility="Collapsed" />
+			</Interactivity:Interaction.Behaviors>
+		</Controls:PageHeader>			
+			
+    </Grid>
+</Page>

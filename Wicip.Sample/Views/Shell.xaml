@@ -19,13 +19,41 @@
 						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Home" />
 					</StackPanel>
 				</Controls:HamburgerButtonInfo>
+
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:UltrasonicSensorPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="View" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Ultrasonic sensor" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:CameraPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="Camera" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Camera" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:SpeechSynthesisPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="Volume" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Speech synthesis" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:VoiceRecognitionPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="Microphone" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Voice recognition" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
 			</Controls:HamburgerMenu.PrimaryButtons>
 
 			<Controls:HamburgerMenu.SecondaryButtons>
 				<Controls:HamburgerButtonInfo PageType="views:SettingsPage">
 					<StackPanel Orientation="Horizontal">
 						<SymbolIcon Width="48" Height="48" Symbol="Setting" />
-						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Settings" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="About" />
 					</StackPanel>
 				</Controls:HamburgerButtonInfo>
 			</Controls:HamburgerMenu.SecondaryButtons>

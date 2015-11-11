@@ -22,7 +22,7 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="Settings">
+		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="About">
 			<!-- Hide the ellipsis menu on the right side of the PageHeader -->
 			<Interactivity:Interaction.Behaviors>
 				<Behaviors:EllipsisBehavior Visibility="Collapsed" />
