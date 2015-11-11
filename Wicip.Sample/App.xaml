@@ -1,8 +1,12 @@
-﻿<Application
-    x:Class="Wicip.Sample.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Wicip.Sample"
-    RequestedTheme="Light">
+<common:BootStrapper 
+    x:Class="Wicip.Sample.App" 
+    xmlns:common="using:Template10.Common" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:Wicip.Sample">
 
-</Application>
+	<Application.Resources>
+		<ResourceDictionary Source="Styles\Custom.xaml" />
+	</Application.Resources>
+
+</common:BootStrapper>
