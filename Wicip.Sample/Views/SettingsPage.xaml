@@ -32,7 +32,7 @@
 		<Grid DataContext="{Binding AboutPartViewModel}" Grid.Row="1" Margin="15, 20, 15, 20">
 			<Border HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="DimGray" BorderThickness="1" IsHitTestVisible="False">
 				<Border.Background>
-					<SolidColorBrush Color="{ThemeResource SystemAccentColor}" />
+					<SolidColorBrush Color="{ThemeResource AccentColor}" />
 				</Border.Background>
 				<Image Margin="12" Source="{Binding Logo}" Stretch="None" />
 			</Border>
