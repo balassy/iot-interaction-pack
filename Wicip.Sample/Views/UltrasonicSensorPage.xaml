@@ -5,12 +5,23 @@
     xmlns:local="using:Wicip.Sample.Views"
 		xmlns:Behaviors="using:Template10.Behaviors"
 		xmlns:Controls="using:Template10.Controls"
+		xmlns:Converters="using:Wicip.Sample.Converters"
 		xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"	
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+	<Page.Resources>
+		<Converters:DistanceConverter x:Key="distanceConverter" />
+		<Converters:DistanceTextConverter x:Key="distanceTextConverter" />
+	</Page.Resources>
+
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
 
 		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="Ultrasonic sensor">
 			<!-- Hide the ellipsis menu on the right side of the PageHeader -->
@@ -18,6 +29,14 @@
 				<Behaviors:EllipsisBehavior Visibility="Collapsed" />
 			</Interactivity:Interaction.Behaviors>
 		</Controls:PageHeader>
+
+		<StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<TextBlock Margin="0, 0, 10, 0">Distance:</TextBlock>
+				<TextBlock x:Name="txtDistance" Text="{Binding Distance, Converter={StaticResource distanceTextConverter}, ConverterParameter=400}" />
+			</StackPanel>
+			<ProgressBar x:Name="pbDistance" Minimum="0" Maximum="100" Value="{Binding Distance, Converter={StaticResource distanceConverter}, ConverterParameter=100}" Margin="20, 20, 20, 20" />
+		</StackPanel>
 
 	</Grid>
 </Page>
