@@ -27,6 +27,8 @@ namespace Wicip.Sample.ViewModels
 				return $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}";
 			}
 		}
+
+		public string HomePage => @"https://github.com/balassy/wicip";
 	}
 
 }

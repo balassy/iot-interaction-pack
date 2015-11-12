@@ -46,6 +46,7 @@
 					<Run>Version</Run>
 					<Run Text="{Binding Version}" />
 				</TextBlock>
+				<TextBlock Margin="0,12,0,0" Text="{Binding HomePage}" />
 			</StackPanel>
 		</Grid>
 
