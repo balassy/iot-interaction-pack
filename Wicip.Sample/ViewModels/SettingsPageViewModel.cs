@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Windows.ApplicationModel;
 
 
@@ -12,14 +13,18 @@ namespace Wicip.Sample.ViewModels
 
 
 	public class AboutPartViewModel : Template10.Mvvm.ViewModelBase
-	{
-		public Uri Logo => Package.Current.Logo;
+    {
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model")]
+        public Uri Logo => Package.Current.Logo;
 
-		public string DisplayName => Package.Current.DisplayName;
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model")]
+        public string DisplayName => Package.Current.DisplayName;
 
-		public string Publisher => Package.Current.PublisherDisplayName;
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model")]
+        public string Publisher => Package.Current.PublisherDisplayName;
 
-		public string Version
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model")]
+        public string Version
 		{
 			get
 			{
@@ -28,7 +33,8 @@ namespace Wicip.Sample.ViewModels
 			}
 		}
 
-		public string HomePage => @"https://github.com/balassy/wicip";
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model")]
+        public string Homepage => @"https://github.com/balassy/wicip";
 	}
 
 }
