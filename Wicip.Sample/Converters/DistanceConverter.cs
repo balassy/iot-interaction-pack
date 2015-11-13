@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
@@ -9,7 +10,7 @@ namespace Wicip.Sample.Converters
 		public object Convert( object value, Type targetType, object parameter, string language )
 		{
 			double? distance = (double?) value;
-			int maxValue = Int32.Parse((string) parameter);
+			int maxValue = Int32.Parse( (string) parameter, CultureInfo.InvariantCulture );
 			return !distance.HasValue
 						? DependencyProperty.UnsetValue
 						: distance.Value > maxValue

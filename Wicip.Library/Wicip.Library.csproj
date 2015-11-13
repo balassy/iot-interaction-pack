@@ -144,6 +144,7 @@
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Compile Include="Speaker.cs" />
     <Compile Include="UltrasonicSensor.cs" />
     <Content Include="Properties\Wicip.Library.rd.xml" />
   </ItemGroup>
