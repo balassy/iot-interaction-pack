@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.FormattableString;
 using System.Diagnostics.CodeAnalysis;
 using Windows.ApplicationModel;
 
@@ -29,7 +30,7 @@ namespace Wicip.Sample.ViewModels
 			get
 			{
 				PackageVersion ver = Package.Current.Id.Version;
-				return $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}";
+				return Invariant($"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}");
 			}
 		}
 
