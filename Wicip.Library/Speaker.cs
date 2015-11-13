@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Windows.Foundation;
 using Windows.Media.SpeechSynthesis;
 
 namespace Wicip
 {
-	public class Speaker : IDisposable
+	public sealed class Speaker : IDisposable
 	{
 		private SpeechSynthesizer synthesizer;
 
@@ -28,7 +29,8 @@ namespace Wicip
 		}
 
 
-		public IAsyncOperation<SpeechSynthesisStream> SynthesizeMarkup( string ssml )
+		[SuppressMessage( "Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "ssml", Justification = "Widely used for Speech Synthesis Markup Language" )]
+    public IAsyncOperation<SpeechSynthesisStream> SynthesizeMarkup( string ssml )
 		{
 			return this.synthesizer.SynthesizeSsmlToStreamAsync( ssml );
 		}
