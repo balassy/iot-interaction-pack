@@ -1,30 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Template10.Services.NavigationService;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Diagnostics.CodeAnalysis;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Template10.Common;
+using Template10.Services.NavigationService;
 
 namespace Wicip.Sample.Views
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
 	public sealed partial class Shell : Page
 	{
+		public static Shell Instance { get; set; }
+
+
 		public Shell( NavigationService navigationService )
 		{
+			Shell.Instance = this;
 			this.InitializeComponent();
 			this.menu.NavigationService = navigationService;
+			VisualStateManager.GoToState( this, this.NormalVisualState.Name, useTransitions: true );
 		}
+
+
+		[SuppressMessage( "Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Justification = "We love default values." )]
+		public static void SetBusyVisibility( Visibility visible, string text = null )
+		{
+			WindowWrapper.Current().Dispatcher.Dispatch( () =>
+			{
+				switch( visible )
+				{
+					case Visibility.Visible:
+						Shell.Instance.FindName( nameof( busyScreen ) );
+						Shell.Instance.tblBusy.Text = text ?? String.Empty;
+						if( VisualStateManager.GoToState( Shell.Instance, Shell.Instance.BusyVisualState.Name, useTransitions: true ) )
+						{
+							SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+						}
+						break;
+
+					case Visibility.Collapsed:
+						if( VisualStateManager.GoToState( Shell.Instance, Shell.Instance.NormalVisualState.Name, useTransitions: true ) )
+						{
+							BootStrapper.Current.UpdateShellBackButton();
+						}
+						break;
+				}
+			} );
+		}
+
 	}
 }
