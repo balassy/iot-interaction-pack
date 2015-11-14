@@ -35,7 +35,7 @@ namespace Wicip.Sample.ViewModels
 		}
 
 		[SuppressMessage( "Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model" )]
-		public string Homepage => @"https://github.com/balassy/wicip";
+		public string Homepage => @"https://github.com/balassy/iot-interaction-pack";
 	}
 
 }
