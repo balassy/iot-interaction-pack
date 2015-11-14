@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Media.Capture;
@@ -51,34 +50,47 @@ namespace Wicip
 		}
 
 
-		[SuppressMessage( "Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Contains complex logic." )]
-		public VideoEncodingProperties GetMaxResolution()
+		public IEnumerable<VideoEncodingProperties> Resolutions
+		{
+			get
+			{
+				this.AssertInitialized();
+				return this.captureManager.VideoDeviceController.GetAvailableMediaStreamProperties( MediaStreamType.VideoPreview )
+					.Cast<VideoEncodingProperties>();
+			}
+		}
+
+		public VideoEncodingProperties MaxResolution
+		{
+			get
+			{
+				this.AssertInitialized();
+
+				return this.Resolutions
+					.OrderByDescending( v => v.Width )
+					.FirstOrDefault();
+			}
+		}
+
+
+		public VideoEncodingProperties MinResolution
+		{
+			get
+			{
+				this.AssertInitialized();
+
+				return this.Resolutions
+					.OrderBy( v => v.Width )
+					.FirstOrDefault();
+			}
+		}
+
+
+		public async Task SetResolutionAsync(VideoEncodingProperties resolution)
 		{
 			this.AssertInitialized();
 
-			IReadOnlyList<IMediaEncodingProperties> resolutions = this.captureManager.VideoDeviceController.GetAvailableMediaStreamProperties( MediaStreamType.VideoPreview );
-			uint maxWidth = 0;
-			int indexMaxResolution = 0;
-
-			if( resolutions.Count >= 1 )
-			{
-				for( int i = 0; i < resolutions.Count; i++ )
-				{
-					VideoEncodingProperties vp = (VideoEncodingProperties) resolutions[ i ];
-
-					if( vp.Width > maxWidth )
-					{
-						indexMaxResolution = i;
-						maxWidth = vp.Width;
-					}
-				}
-
-				return (VideoEncodingProperties) resolutions[ indexMaxResolution ];
-			}
-			else
-			{
-				return null;
-			}
+			await this.captureManager.VideoDeviceController.SetMediaStreamPropertiesAsync( MediaStreamType.VideoPreview, resolution );
 		}
 
 

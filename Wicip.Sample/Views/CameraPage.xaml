@@ -13,6 +13,7 @@
 
 	<Page.Resources>
 		<Converters:CameraResolutionConverter x:Key="resolutionConverter" />
+		<Converters:CameraResolutionListItemConverter x:Key="resolutionsConverter" />
 	</Page.Resources>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -44,8 +45,14 @@
 				<Image Source="{Binding PhotoImage.Result}" Width="640" Height="480" />
 			</Border>
 
-			<StackPanel HorizontalAlignment="Center">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<TextBlock Margin="5">Resolution: </TextBlock>
+				<ComboBox x:Name="cboResolutions" ItemsSource="{Binding Resolutions, Converter={StaticResource resolutionsConverter}}" SelectedValue="{Binding SelectedResolution, Mode=TwoWay}" DisplayMemberPath="Key" SelectedValuePath="Value" Margin="10, 0, 10, 0"></ComboBox>
 				<Button x:Name="btnTakePhoto" Content="Take photo" Click="btnTakePhoto_Click" />				
+			</StackPanel>
+
+			<StackPanel HorizontalAlignment="Center">
+				<TextBlock Text="{Binding PhotoFile.Path}" Margin="10" />
 			</StackPanel>
 		</StackPanel>
 

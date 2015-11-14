@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Wicip.Sample.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
@@ -44,25 +45,17 @@ namespace Wicip.Sample.Views
 			await this.camera.InitializeAsync();
 
 			this.viewModel.CameraName = ( await this.camera.GetCameraInformationAsync() ).Name;
-			this.viewModel.MaxResolution = this.camera.GetMaxResolution();
+			this.viewModel.MaxResolution = this.camera.MaxResolution;
+			this.viewModel.Resolutions = this.camera.Resolutions;
+			this.cboResolutions.SelectedIndex = 0;
 		}
 
 
 		private async void btnTakePhoto_Click( object sender, RoutedEventArgs e )
 		{
+			await this.camera.SetResolutionAsync( this.viewModel.SelectedResolution );
 			StorageFile photoFile = await this.camera.CapturePhotoToFileAsync();
 			this.viewModel.PhotoFile = photoFile;
-
-			//this.txtStatus.Text = $"Photo successfully captured to {photoFile.Path}";
-
-			// NOTE: We could use this.imgPreview.Source = new BitmapImage(new Uri(photoFile.Path)) here, however images are cached when loaded from Uri.
-			//       To make sure the image is always updated on the UI, we use this more complex code.            
-			//BitmapImage image = new BitmapImage();
-			//using( IRandomAccessStream stream = await photoFile.OpenReadAsync() )
-			//{
-			//	await image.SetSourceAsync( stream );
-			//}
-			//this.viewModel.PhotoImage = image;
 		}
 
 	}

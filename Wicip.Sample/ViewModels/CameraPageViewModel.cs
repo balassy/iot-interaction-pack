@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
@@ -22,6 +23,19 @@ namespace Wicip.Sample.ViewModels
 		}
 
 
+		private IEnumerable<VideoEncodingProperties> resolutions;
+
+		public IEnumerable<VideoEncodingProperties> Resolutions
+		{
+			get { return this.resolutions; }
+			set
+			{
+				this.resolutions = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
 		private VideoEncodingProperties maxResolution;
 
 		public VideoEncodingProperties MaxResolution
@@ -30,6 +44,19 @@ namespace Wicip.Sample.ViewModels
 			set
 			{
 				this.maxResolution = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
+		private VideoEncodingProperties selectedResolution;
+
+		public VideoEncodingProperties SelectedResolution
+		{
+			get { return this.selectedResolution; }
+			set
+			{
+				this.selectedResolution = value;
 				base.RaisePropertyChanged();
 			}
 		}

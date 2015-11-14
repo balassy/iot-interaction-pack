@@ -116,6 +116,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\CameraResolutionListItemConverter.cs" />
     <Compile Include="Converters\CameraResolutionConverter.cs" />
     <Compile Include="Converters\DistanceTextConverter.cs" />
     <Compile Include="Converters\DistanceConverter.cs" />
