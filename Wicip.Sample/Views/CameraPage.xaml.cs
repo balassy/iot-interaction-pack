@@ -53,9 +53,13 @@ namespace Wicip.Sample.Views
 
 		private async void btnTakePhoto_Click( object sender, RoutedEventArgs e )
 		{
+			Shell.SetBusyVisibility( Visibility.Visible, "Saving photo..." );
+
 			await this.camera.SetResolutionAsync( this.viewModel.SelectedResolution );
 			StorageFile photoFile = await this.camera.CapturePhotoToFileAsync();
 			this.viewModel.PhotoFile = photoFile;
+
+			Shell.SetBusyVisibility( Visibility.Collapsed );
 		}
 
 	}
