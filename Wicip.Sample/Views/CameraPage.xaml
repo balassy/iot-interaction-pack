@@ -5,19 +5,49 @@
     xmlns:local="using:Wicip.Sample.Views"
 		xmlns:Behaviors="using:Template10.Behaviors"
 		xmlns:Controls="using:Template10.Controls"
+		xmlns:Converters="using:Wicip.Sample.Converters"
 		xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"	
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.Resources>
+		<Converters:CameraResolutionConverter x:Key="resolutionConverter" />
+	</Page.Resources>
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
 
 		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="Camera">
 			<!-- Hide the ellipsis menu on the right side of the PageHeader -->
 			<Interactivity:Interaction.Behaviors>
 				<Behaviors:EllipsisBehavior Visibility="Collapsed" />
 			</Interactivity:Interaction.Behaviors>
-		</Controls:PageHeader>			
-			
-    </Grid>
+		</Controls:PageHeader>
+
+		<StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<TextBlock Margin="0, 0, 10, 0">Camera:</TextBlock>
+				<TextBlock Text="{Binding CameraName}" FontWeight="Bold" />
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<TextBlock Margin="0, 0, 10, 0">Maximum resolution:</TextBlock>
+				<TextBlock Text="{Binding MaxResolution, Converter={StaticResource resolutionConverter}}" FontWeight="Bold" />
+			</StackPanel>
+
+			<Border BorderThickness="1" BorderBrush="#FF000000" Width="640" Height="480" Margin="20">
+				<Image Source="{Binding PhotoImage.Result}" Width="640" Height="480" />
+			</Border>
+
+			<StackPanel HorizontalAlignment="Center">
+				<Button x:Name="btnTakePhoto" Content="Take photo" Click="btnTakePhoto_Click" />				
+			</StackPanel>
+		</StackPanel>
+
+	</Grid>
 </Page>
