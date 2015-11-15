@@ -37,7 +37,6 @@ namespace Wicip
 		public async Task InitializeAsync()
 		{
 			await this.captureManager.InitializeAsync();
-			//await this.SetResolutionAsync( 640, 480 );
 			this.isInitialized = true;
 		}
 
