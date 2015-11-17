@@ -17,7 +17,7 @@ namespace Wicip.Sample.Controls
 				new KeyValuePair<string, int>("GPIO 03 - pin 05 (SCL1, I2C)", 3),
 				new KeyValuePair<string, int>("GPIO 04 - pin 07 (GPIO_GCLK)", 4),
 				new KeyValuePair<string, int>("GPIO 05 - pin 29", 5),
-				new KeyValuePair<string, int>("GPIO 06 - pin 30", 6),
+				new KeyValuePair<string, int>("GPIO 06 - pin 31", 6),
 				new KeyValuePair<string, int>("GPIO 07 - pin 26 (SPI_CE1_N)", 7),
 				new KeyValuePair<string, int>("GPIO 08 - pin 24 (SPI_CE0_N)", 8),
 				new KeyValuePair<string, int>("GPIO 09 - pin 21 (SPI_MISO)", 9),
