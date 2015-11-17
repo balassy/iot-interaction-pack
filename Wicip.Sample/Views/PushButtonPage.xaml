@@ -20,6 +20,7 @@
 
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
@@ -30,7 +31,11 @@
 			</Interactivity:Interaction.Behaviors>
 		</Controls:PageHeader>
 
-		<Grid Grid.Row="1" Margin="5, 15, 15, 15">
+		<StackPanel Grid.Row="1" Margin="15">
+			<TextBlock Text="This example shows how you can monitor when a hardware button is pushed." TextWrapping="Wrap" />
+		</StackPanel>
+		
+		<Grid Grid.Row="2" Margin="5, 15, 15, 15">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition />
