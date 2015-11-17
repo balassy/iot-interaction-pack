@@ -48,7 +48,7 @@
 				<Button Content="Start monitor" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartMonitor_Click" />
 			</StackPanel>			
 			
-			<ToggleSwitch IsOn="{Binding IsOn}" Header="Button state" OffContent="Released" OnContent="Pressed" IsEnabled="False" Grid.Row="1" Grid.Column="1" Margin="10" />
+			<ToggleSwitch x:Name="tsIsOn" IsOn="{Binding IsOn}" Header="Button state" OffContent="Released" OnContent="Pressed" IsEnabled="False" Visibility="Collapsed" Grid.Row="1" Grid.Column="1" Margin="10" />
 		</Grid>
 
 	</Grid>

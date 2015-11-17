@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -43,7 +44,7 @@ namespace Wicip.Sample.Views
 		}
 
 
-		private void btnStartMonitor_Click( object sender, Windows.UI.Xaml.RoutedEventArgs e )
+		private void btnStartMonitor_Click( object sender, RoutedEventArgs e )
 		{
 			if( this.button != null )
 			{
@@ -55,6 +56,8 @@ namespace Wicip.Sample.Views
 			this.button = new PushButton( this.viewModel.PinNumber );
 			this.button.Pushed += this.OnButtonPushed;
 			this.button.Released += this.OnButtonReleased;
+
+			this.tsIsOn.Visibility = Visibility.Visible;
 		}
 
 	}
