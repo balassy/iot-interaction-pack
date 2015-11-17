@@ -31,8 +31,12 @@
 			</Interactivity:Interaction.Behaviors>
 		</Controls:PageHeader>
 
-		<StackPanel Grid.Row="1" Margin="15">
-			<TextBlock Text="This example shows how you can monitor when a hardware button is pushed." TextWrapping="Wrap" />
+		<StackPanel Orientation="Vertical" Grid.Row="1" Margin="15">
+			<TextBlock Text="This example shows how you can monitor when a hardware button is pushed." TextWrapping="Wrap" />			
+			<StackPanel Orientation="Horizontal">
+				<Image Source="ms-appx:///Fritzing/Push_button_bb.png" Height="500" />
+				<Image Source="/Fritzing/Push_button_schem.png" Height="500" />
+			</StackPanel>
 		</StackPanel>
 		
 		<Grid Grid.Row="2" Margin="5, 15, 15, 15">

@@ -109,6 +109,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Fritzing\Push_button.fzz" />
     <None Include="project.json" />
     <None Include="Wicip.Sample.snk" />
   </ItemGroup>
@@ -163,6 +164,8 @@
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <EmbeddedResource Include="Fritzing\Push_button_bb.png" />
+    <EmbeddedResource Include="Fritzing\Push_button_schem.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
