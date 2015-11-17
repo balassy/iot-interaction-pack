@@ -2,7 +2,7 @@
 {
 	public class PushButtonPageViewModel : Template10.Mvvm.ViewModelBase
 	{
-		private int pinNumber = 7;
+		private int pinNumber = 5;
 
 		public int PinNumber
 		{
