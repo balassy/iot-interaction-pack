@@ -125,6 +125,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CameraPageViewModel.cs" />
+    <Compile Include="ViewModels\LedPageViewModel.cs" />
     <Compile Include="ViewModels\NotifyTaskCompletion.cs" />
     <Compile Include="ViewModels\PushButtonPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
