@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Wicip.Sample.Views
 {
-	public sealed partial class UltrasonicSensorPage : Page
+	public sealed partial class UltrasonicSensorPage : Page, IDisposable
 	{
 		private UltrasonicSensor sensor;
 
@@ -14,25 +14,48 @@ namespace Wicip.Sample.Views
 		public UltrasonicSensorPage()
 		{
 			this.InitializeComponent();
-
-			const int TRIGGER_PIN = 5; // Sensor's Trigger pin connected to GPIO5.
-			const int ECHO_PIN = 6;    // Sensor's Echo pin connected to GPIO6.
-
-			this.sensor = new UltrasonicSensor( TRIGGER_PIN, ECHO_PIN );
 		}
+
+
+		public void Dispose()
+		{
+			if( this.sensor != null )
+			{
+				this.sensor.Dispose();
+			}
+		}
+
 
 		protected override void OnNavigatedTo( NavigationEventArgs e )
 		{
 			base.OnNavigatedTo( e );
-			
+			this.viewModel.IsAvailable = UltrasonicSensor.IsAvailable;
+		}
+
+
+		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
+		{
+			base.OnNavigatingFrom( e );
+			this.Dispose();
+		}
+
+
+		private void btnStartControl_Click( object sender, RoutedEventArgs e )
+		{
+			this.sensor = new UltrasonicSensor( this.viewModel.TriggerPinNumber, this.viewModel.EchoPinNumber );
+
 			// Measure and display distance every second.
-			this.measureTimer.Tick += ( sender, args ) =>
+			this.measureTimer.Tick += ( s, args ) =>
 			{
 				this.viewModel.Distance = sensor.GetDistance();
 			};
 
 			this.measureTimer.Interval = TimeSpan.FromSeconds( 0.5 );
 			this.measureTimer.Start();
+
+			this.tblDistancePrompt.Visibility = Visibility.Visible;
+			this.tblDistance.Visibility = Visibility.Visible;
+			this.pbDistance.Visibility = Visibility.Visible;
 		}
 
 	}
