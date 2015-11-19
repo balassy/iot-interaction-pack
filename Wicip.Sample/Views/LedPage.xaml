@@ -23,7 +23,10 @@
 
 		<Controls:PageHeader Text="LED" />
 
-		<TextBlock Text="This example shows how you can turn a light-emitting diode (LED) on or off." TextWrapping="Wrap" Grid.Row="1" Margin="15" />
+		<StackPanel Orientation="Vertical" Grid.Row="1" >
+			<TextBlock Text="This example shows how you can turn a light-emitting diode (LED) on or off." TextWrapping="Wrap" Margin="15, 15, 0, 0" />
+			<Controls:GpioMissingWarning Margin="15, 15, 0, 0" />
+		</StackPanel>
 
 		<Grid Grid.Row="2" Margin="5, 15, 15, 15">
 			<Grid.ColumnDefinitions>
@@ -40,8 +43,8 @@
 
 			<TextBlock Text="GPIO pin:" Grid.Row="0" Grid.Column="0" Margin="10, 15" />
 			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="10">
-				<Controls:GpioPinSelector SelectedValue="{Binding PinNumber, Mode=TwoWay}" />
-				<Button Content="Start control" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartControl_Click" />
+				<Controls:GpioPinSelector SelectedValue="{Binding PinNumber, Mode=TwoWay}" IsEnabled="{Binding IsAvailable}" />
+				<Button Content="Start control" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartControl_Click"  IsEnabled="{Binding IsAvailable}" />
 			</StackPanel>
 
 			<TextBlock x:Name="txbIsOnPrompt" Text="LED state:" Grid.Row="1" Grid.Column="0" Margin="10, 20" Visibility="Collapsed" />

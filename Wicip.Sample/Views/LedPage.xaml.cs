@@ -25,6 +25,13 @@ namespace Wicip.Sample.Views
 		}
 
 
+		protected override void OnNavigatedTo( NavigationEventArgs e )
+		{
+			base.OnNavigatedTo( e );
+			this.viewModel.IsAvailable = Led.IsAvailable;
+		}
+
+
 		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
 		{
 			base.OnNavigatingFrom( e );

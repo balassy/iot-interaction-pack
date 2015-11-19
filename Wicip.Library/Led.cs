@@ -3,7 +3,7 @@ using Windows.Devices.Gpio;
 
 namespace Wicip
 {
-	public sealed class Led : IDisposable
+	public sealed class Led : GpioDeviceBase, IDisposable
 	{
 		GpioPin pin;
 

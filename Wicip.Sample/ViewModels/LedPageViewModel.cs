@@ -2,6 +2,19 @@
 {
 	internal class LedPageViewModel : Template10.Mvvm.ViewModelBase
 	{
+		private bool isAvailable;
+
+		public bool IsAvailable
+		{
+			get { return this.isAvailable; }
+			set
+			{
+				this.isAvailable = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
 		private int pinNumber = 6;
 
 		public int PinNumber
