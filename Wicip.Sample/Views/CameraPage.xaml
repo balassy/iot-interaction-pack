@@ -5,10 +5,15 @@
 		xmlns:local="using:Wicip.Sample.Views"
 		xmlns:Controls="using:Wicip.Sample.Controls"
 		xmlns:Converters="using:Wicip.Sample.Converters"
+		xmlns:ViewModels="using:Wicip.Sample.ViewModels"	
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d">
 
+	<Page.DataContext>
+		<ViewModels:CameraPageViewModel x:Name="viewModel" />
+	</Page.DataContext>
+	
 	<Page.Resources>
 		<Converters:CameraResolutionConverter x:Key="resolutionConverter" />
 		<Converters:CameraResolutionListItemConverter x:Key="resolutionsConverter" />
