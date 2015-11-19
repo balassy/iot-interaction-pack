@@ -3,7 +3,7 @@ using Windows.Devices.Gpio;
 
 namespace Wicip
 {
-	public class Led
+	public sealed class Led : IDisposable
 	{
 		GpioPin pin;
 
@@ -13,6 +13,14 @@ namespace Wicip
 			this.pin = controller.OpenPin( pinId );
 			this.pin.Write( GpioPinValue.High );
 			this.pin.SetDriveMode( GpioPinDriveMode.Output );
+		}
+
+		public void Dispose()
+		{
+			if( this.pin != null )
+			{
+				this.pin.Dispose();
+			}
 		}
 
 
@@ -26,5 +34,6 @@ namespace Wicip
 		{
 			this.pin.Write( GpioPinValue.High );
 		}
+
 	}
 }
