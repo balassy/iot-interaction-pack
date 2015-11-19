@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Wicip.Sample.ViewModels
 {
-	public class CameraPageViewModel : Template10.Mvvm.ViewModelBase
+	internal class CameraPageViewModel : Template10.Mvvm.ViewModelBase
 	{
 		private string cameraName;
 
@@ -91,7 +91,7 @@ namespace Wicip.Sample.ViewModels
 
 
 
-		private static async Task<BitmapImage> LoadImageFromFile(StorageFile file)
+		private static async Task<BitmapImage> LoadImageFromFile( StorageFile file )
 		{
 			BitmapImage image = new BitmapImage();
 			using( IRandomAccessStream stream = await file.OpenReadAsync() )

@@ -1,19 +1,17 @@
 ﻿using System;
-using static System.FormattableString;
 using System.Diagnostics.CodeAnalysis;
 using Windows.ApplicationModel;
 
 
 namespace Wicip.Sample.ViewModels
 {
-	public class SettingsPageViewModel : Template10.Mvvm.ViewModelBase
+	internal class SettingsPageViewModel : Template10.Mvvm.ViewModelBase
 	{
 		public AboutPartViewModel AboutPartViewModel { get; } = new AboutPartViewModel();
 	}
 
 
-
-	public class AboutPartViewModel : Template10.Mvvm.ViewModelBase
+	internal class AboutPartViewModel : Template10.Mvvm.ViewModelBase
 	{
 		[SuppressMessage( "Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "View model" )]
 		public Uri Logo => Package.Current.Logo;
@@ -30,7 +28,7 @@ namespace Wicip.Sample.ViewModels
 			get
 			{
 				PackageVersion ver = Package.Current.Id.Version;
-				return Invariant($"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}");
+				return FormattableString.Invariant( $"{ver.Major}.{ver.Minor}.{ver.Build}.{ver.Revision}");
 			}
 		}
 

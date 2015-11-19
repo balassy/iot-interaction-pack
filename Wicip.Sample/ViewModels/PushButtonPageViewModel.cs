@@ -1,6 +1,6 @@
 ﻿namespace Wicip.Sample.ViewModels
 {
-	public class PushButtonPageViewModel : Template10.Mvvm.ViewModelBase
+	internal class PushButtonPageViewModel : Template10.Mvvm.ViewModelBase
 	{
 		private int pinNumber = 5;
 
@@ -13,7 +13,6 @@
 				base.RaisePropertyChanged();
 			}
 		}
-
 
 
 		private bool isOn;
