@@ -51,7 +51,7 @@
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
-			<TextBlock Text="GPIO pin number:" Grid.Row="0" Grid.Column="0" Margin="10, 15" />
+			<TextBlock Text="GPIO pin:" Grid.Row="0" Grid.Column="0" Margin="10, 15" />
 			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="10">
 				<CustomControls:GpioPinSelector SelectedValue="{Binding PinNumber, Mode=TwoWay}" />
 				<Button Content="Start monitor" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartMonitor_Click" />
