@@ -24,10 +24,16 @@ namespace Wicip.Sample.Views
 		}
 
 
+		protected override void OnNavigatedTo( NavigationEventArgs e )
+		{
+			base.OnNavigatedTo( e );
+			this.viewModel.IsAvailable = PushButton.IsAvailable;
+		}
+
+
 		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
 		{
 			base.OnNavigatingFrom( e );
-
 			this.Dispose();
 		}
 
@@ -54,6 +60,7 @@ namespace Wicip.Sample.Views
 			}
 
 			this.button = new PushButton( this.viewModel.PinNumber );
+
 			this.button.Pushed += this.OnButtonPushed;
 			this.button.Released += this.OnButtonReleased;
 
