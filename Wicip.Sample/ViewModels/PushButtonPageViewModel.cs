@@ -15,7 +15,7 @@
 		}
 
 
-		private int pinNumber = 5;
+		private int pinNumber = 16;
 
 		public int PinNumber
 		{
