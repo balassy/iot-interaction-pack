@@ -1,4 +1,5 @@
-﻿using Windows.Devices.Gpio;
+﻿using System.IO;
+using Windows.Devices.Gpio;
 
 namespace Wicip
 {
@@ -8,7 +9,14 @@ namespace Wicip
 		{
 			get
 			{
-				return GpioController.GetDefault() != null;
+				try
+				{
+					return GpioController.GetDefault() != null;
+				}
+				catch( FileNotFoundException )
+				{
+					return false;
+				}
 			}
 		}
 
