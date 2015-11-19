@@ -3,7 +3,7 @@ using Windows.Devices.Gpio;
 
 namespace Wicip
 {
-	public sealed class PushButton : IDisposable
+	public sealed class PushButton : GpioDeviceBase, IDisposable
 	{
 		private GpioPin pin;
 

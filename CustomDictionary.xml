@@ -4,5 +4,8 @@
 			<Word>Wicip</Word>
 			<Word>Gpio</Word>
 		</Recognized>
+		<DiscreteExceptions>
+			<Term>TurnOff</Term>
+		</DiscreteExceptions>
 	</Words>
 </Dictionary>

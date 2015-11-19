@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -24,23 +26,37 @@ namespace Wicip.Sample.Views
 		}
 
 
+		protected override void OnNavigatedTo( NavigationEventArgs e )
+		{
+			base.OnNavigatedTo( e );
+			this.viewModel.IsAvailable = PushButton.IsAvailable;
+		}
+
+
 		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
 		{
 			base.OnNavigatingFrom( e );
-
 			this.Dispose();
 		}
 
 
+		[SuppressMessage( "Microsoft.Performance", "CA1804:RemoveUnusedLocals", MessageId = "task", Justification = "Simpler code." )]
 		private void OnButtonPushed( object sender, EventArgs e )
 		{
-			this.viewModel.IsOn = true;
+			var task = this.Dispatcher.RunAsync( CoreDispatcherPriority.Normal, () =>
+			 {
+				 this.viewModel.IsOn = true;
+			 } );
 		}
 
 
+		[SuppressMessage( "Microsoft.Performance", "CA1804:RemoveUnusedLocals", MessageId = "task", Justification = "Simpler code." )]
 		private void OnButtonReleased( object sender, EventArgs e )
 		{
-			this.viewModel.IsOn = false;
+			var task = this.Dispatcher.RunAsync( CoreDispatcherPriority.Normal, () =>
+			{
+				this.viewModel.IsOn = false;
+			} );
 		}
 
 

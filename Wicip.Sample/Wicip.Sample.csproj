@@ -117,10 +117,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GpioMissingWarning.xaml.cs">
+      <DependentUpon>GpioMissingWarning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GpioPinSelector.cs" />
     <Compile Include="Controls\PageHeader.xaml.cs">
       <DependentUpon>PageHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\InverseBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\CameraResolutionListItemConverter.cs" />
     <Compile Include="Converters\CameraResolutionConverter.cs" />
     <Compile Include="Converters\DistanceTextConverter.cs" />
@@ -187,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\GpioMissingWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PageHeader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
