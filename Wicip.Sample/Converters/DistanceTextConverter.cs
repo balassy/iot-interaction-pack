@@ -14,7 +14,7 @@ namespace Wicip.Sample.Converters
 			int maxDistance = Int32.Parse( (string) parameter, CultureInfo.InvariantCulture );
 			return distance.HasValue
 						? distance.Value < maxDistance
-							?	$"{distance.Value} centimeters"
+							? $"{distance.Value} centimeters"
 							: "(out of range)"
 						: "(not available)";
 		}
