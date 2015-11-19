@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Wicip.Sample.ViewModels;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Wicip.Sample.Views
@@ -21,16 +9,11 @@ namespace Wicip.Sample.Views
 	{
 		private UltrasonicSensor sensor;
 
-		private UltrasonicSensorPageViewModel viewModel;
-
 		private readonly DispatcherTimer measureTimer = new DispatcherTimer();
 
 		public UltrasonicSensorPage()
 		{
 			this.InitializeComponent();
-
-			this.viewModel = new UltrasonicSensorPageViewModel();
-			this.DataContext = this.viewModel;
 
 			const int TRIGGER_PIN = 5; // Sensor's Trigger pin connected to GPIO5.
 			const int ECHO_PIN = 6;    // Sensor's Echo pin connected to GPIO6.

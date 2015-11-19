@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wicip.Sample.ViewModels
+﻿namespace Wicip.Sample.ViewModels
 {
-	public class UltrasonicSensorPageViewModel : Template10.Mvvm.ViewModelBase
+	internal class UltrasonicSensorPageViewModel : Template10.Mvvm.ViewModelBase
 	{
 		private double? distance;
 

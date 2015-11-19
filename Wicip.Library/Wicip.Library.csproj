@@ -141,10 +141,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Led.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Compile Include="PushButton.cs" />
     <Compile Include="Speaker.cs" />
     <Compile Include="UltrasonicSensor.cs" />
     <Content Include="Properties\Wicip.Library.rd.xml" />

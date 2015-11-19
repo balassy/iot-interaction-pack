@@ -33,6 +33,20 @@
 					</StackPanel>
 				</Controls:HamburgerButtonInfo>
 
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:LedPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="Target" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="LED" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+				
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:PushButtonPage">
+					<StackPanel Orientation="Horizontal">
+						<SymbolIcon Width="48" Height="48" Symbol="Download" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Push button" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+				
 				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:UltrasonicSensorPage">
 					<StackPanel Orientation="Horizontal">
 						<SymbolIcon Width="48" Height="48" Symbol="View" />
