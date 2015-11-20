@@ -34,14 +34,14 @@
 			<Controls:GpioMissingWarning Margin="15, 15, 0, 0" />
 		</StackPanel>
 
-		<Grid Grid.Row="2" Margin="5, 15, 15, 15">
+		<Grid Grid.Row="2" Margin="5, 15, 15, 15" HorizontalAlignment="Stretch">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
@@ -54,14 +54,14 @@
 			<TextBlock Text="Echo pin:" Grid.Row="1" Grid.Column="0" Margin="10, 15" />
 			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="10">
 				<Controls:GpioPinSelector SelectedValue="{Binding EchoPinNumber, Mode=TwoWay}" IsEnabled="{Binding IsAvailable}" />
-				<Button Content="Start control" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartControl_Click"  IsEnabled="{Binding IsAvailable}" />
+				<Button Content="Start measure" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartMeasure_Click"  IsEnabled="{Binding IsAvailable}" />
 			</StackPanel>
 
 			<TextBlock x:Name="tblDistancePrompt" Text="Distance:" Grid.Row="2" Grid.Column="0" Margin="10, 15" Visibility="Collapsed" />
-			<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-				<TextBlock x:Name="tblDistance" Text="{Binding Distance, Converter={StaticResource distanceTextConverter}, ConverterParameter=400}" Margin="10, 15" Width="100" Visibility="Collapsed" />
-				<ProgressBar x:Name="pbDistance" Minimum="0" Maximum="100" Value="{Binding Distance, Converter={StaticResource distanceConverter}, ConverterParameter=100}" Margin="20, 20, 20, 20" Visibility="Collapsed" />
-			</StackPanel>
+			<TextBlock x:Name="tblDistance" Text="{Binding Distance, Converter={StaticResource distanceTextConverter}, ConverterParameter=400}" Grid.Row="2" Grid.Column="1" Margin="10, 15" Visibility="Collapsed" />
+
+			<ProgressBar x:Name="pbDistance" Minimum="0" Maximum="100" Grid.Row="3" Grid.Column="1" Value="{Binding Distance, Converter={StaticResource distanceConverter}, ConverterParameter=100}" HorizontalAlignment="Stretch" Margin="10, 0, 10, 0" Visibility="Collapsed" />
+
 		</Grid>
 	</Grid>
 </Page>

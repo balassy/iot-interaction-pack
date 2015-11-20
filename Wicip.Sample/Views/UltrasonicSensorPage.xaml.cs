@@ -40,7 +40,7 @@ namespace Wicip.Sample.Views
 		}
 
 
-		private void btnStartControl_Click( object sender, RoutedEventArgs e )
+		private void btnStartMeasure_Click( object sender, RoutedEventArgs e )
 		{
 			this.sensor = new UltrasonicSensor( this.viewModel.TriggerPinNumber, this.viewModel.EchoPinNumber );
 
