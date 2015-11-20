@@ -19,6 +19,8 @@ namespace Wicip.Sample.Views
 
 		public void Dispose()
 		{
+			this.measureTimer.Stop();
+
 			if( this.sensor != null )
 			{
 				this.sensor.Dispose();
@@ -35,8 +37,8 @@ namespace Wicip.Sample.Views
 
 		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
 		{
-			base.OnNavigatingFrom( e );
 			this.Dispose();
+			base.OnNavigatingFrom( e );
 		}
 
 
