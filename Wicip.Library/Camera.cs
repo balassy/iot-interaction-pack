@@ -13,30 +13,30 @@ namespace Wicip
 {
 	public sealed class Camera : IDisposable
 	{
-		private MediaCapture captureManager;
+		public MediaCapture CaptureManager { get; private set; }
 
 		private bool isInitialized;
 
 
 		public Camera()
 		{
-			this.captureManager = new MediaCapture();
+			this.CaptureManager = new MediaCapture();
 			this.isInitialized = false;
 		}
 
 
 		public void Dispose()
 		{
-			if( this.captureManager != null )
+			if( this.CaptureManager != null )
 			{
-				this.captureManager.Dispose();
+				this.CaptureManager.Dispose();
 			}
 		}
 
 
 		public async Task InitializeAsync()
 		{
-			await this.captureManager.InitializeAsync();
+			await this.CaptureManager.InitializeAsync();
 			//await this.SetResolutionAsync( 640, 480 );
 			this.isInitialized = true;
 		}
@@ -55,7 +55,7 @@ namespace Wicip
 			get
 			{
 				this.AssertInitialized();
-				return this.captureManager.VideoDeviceController.GetAvailableMediaStreamProperties( MediaStreamType.VideoPreview )
+				return this.CaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties( MediaStreamType.VideoPreview )
 					.Cast<VideoEncodingProperties>();
 			}
 		}
@@ -90,7 +90,7 @@ namespace Wicip
 		{
 			this.AssertInitialized();
 
-			await this.captureManager.VideoDeviceController.SetMediaStreamPropertiesAsync( MediaStreamType.VideoPreview, resolution );
+			await this.CaptureManager.VideoDeviceController.SetMediaStreamPropertiesAsync( MediaStreamType.VideoPreview, resolution );
 		}
 
 
@@ -100,7 +100,7 @@ namespace Wicip
 			this.AssertInitialized();
 
 			StorageFile file = await ApplicationData.Current.TemporaryFolder.CreateFileAsync( fileName, CreationCollisionOption.ReplaceExisting );
-			await this.captureManager.CapturePhotoToStorageFileAsync( ImageEncodingProperties.CreateJpeg(), file );
+			await this.CaptureManager.CapturePhotoToStorageFileAsync( ImageEncodingProperties.CreateJpeg(), file );
 			return file;
 		}
 
