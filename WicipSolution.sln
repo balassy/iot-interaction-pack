@@ -16,6 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wicip.Library", "Wicip.Libr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wicip.Sample", "Wicip.Sample\Wicip.Sample.csproj", "{2F62A323-41F5-4FCF-8C3F-FD172ED4CDAF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ext", "ext", "{9A1F35AF-8F11-4557-8530-83FDD494B1D6}"
+	ProjectSection(SolutionItems) = preProject
+		ext\Microsoft.ProjectOxford.Emotion.dll = ext\Microsoft.ProjectOxford.Emotion.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
