@@ -44,9 +44,8 @@ namespace Wicip.Sample.Views
 
 		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
 		{
-			base.OnNavigatingFrom( e );
-
 			this.Dispose();
+			base.OnNavigatingFrom( e );
 		}
 
 

@@ -11,10 +11,21 @@ Last build (any branch): [![Build status](https://ci.appveyor.com/api/projects/s
 
 The Pack contains the following components:
 
+### LED
+
+The `Led` class allows controlling a light-emitting diode (LED) connected to the Windows IoT Core device with its simple `TurnOn` and `TurnOff` methods.
+
+
+### Push button
+
+With the `PushButton` class you can write code that reacts to the events fired when the user pushes or releases a hardware button that is attached to the Windows IoT Core device.
+
+
 ### Ultrasonic sensor
 
 The `UltrasonicSensor` class allows measuring the distance of an object using the HC-SR04 Ultrasonic Ranging Module attached to the Windows IoT Core device.
 This class ensures reliable measurement, also for continuous measuring, even though this hardware module has some very unique characteristics (e.g. such as initialization time).
+
 
 ### Camera
 
