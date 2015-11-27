@@ -1,4 +1,5 @@
-﻿using Windows.Storage;
+﻿using System;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -42,5 +43,10 @@ namespace Wicip.Sample.Views
 			Shell.SetBusyVisibility( Visibility.Collapsed );
 		}
 
+		private async void btnStartPreview_Click( object sender, RoutedEventArgs e )
+		{
+			this.previewElement.Source = this.camera.CaptureManager;
+			await this.camera.CaptureManager.StartPreviewAsync();
+		}
 	}
 }

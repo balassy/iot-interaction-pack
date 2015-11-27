@@ -39,14 +39,19 @@
 				<TextBlock Text="{Binding MaxResolution, Converter={StaticResource resolutionConverter}}" FontWeight="Bold" />
 			</StackPanel>
 
-			<Border BorderThickness="1" BorderBrush="#FF000000" Width="640" Height="480" Margin="20">
-				<Image Source="{Binding PhotoImage.Result}" Width="640" Height="480" />
+			<Border BorderThickness="1" BorderBrush="#FF000000" Width="320" Height="240" Margin="20">
+				<CaptureElement x:Name="previewElement" Width="320" Height="240" />
+			</Border>
+
+			<Border BorderThickness="1" BorderBrush="#FF000000" Width="320" Height="240" Margin="20">
+				<Image Source="{Binding PhotoImage.Result}" Width="320" Height="230" />
 			</Border>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 				<TextBlock Margin="5">Resolution: </TextBlock>
 				<ComboBox x:Name="cboResolutions" ItemsSource="{Binding Resolutions, Converter={StaticResource resolutionsConverter}}" SelectedValue="{Binding SelectedResolution, Mode=TwoWay}" DisplayMemberPath="Key" SelectedValuePath="Value" Margin="10, 0, 10, 0"></ComboBox>
-				<Button x:Name="btnTakePhoto" Content="Take photo" Click="btnTakePhoto_Click" />				
+				<Button Content="Start preview" Click="btnStartPreview_Click" />
+				<Button Content="Take photo" Click="btnTakePhoto_Click" Margin="10, 0" />
 			</StackPanel>
 
 			<StackPanel HorizontalAlignment="Center">

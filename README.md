@@ -31,7 +31,7 @@ This class ensures reliable measurement, also for continuous measuring, even tho
 
 The `Camera` class allows creating photos using the camera attached to the Windows IoT Core device. It was tested with a Logitech C910 HD Pro Webcam which 
 is although officially not supported yet, works perfectly for this scenario. The class provides information about the detected camera (device name, supported resolutions),
-and provides a convenient way to take a picture with the desired resolution and save it to a file on the device.
+and provides a convenient way to show a preview, and take a picture with the desired resolution, and save it to a file on the device.
 
 
 ### Speech synthesis
@@ -45,14 +45,9 @@ text, and your device will read it loud on a male or female voice.
 Coming soon...
 
 
-### Face detection
-
-Coming soon...
-
-
 ## For contributors
 
-Feel free to contribute to this project and submit pull request, but please use the attached .vssettings file before committing to ensure code conformance. Thank you.
+Feel free to contribute to this project and submit pull request, but please use the attached `.vssettings` file before committing to ensure code conformance. Thank you.
 
 
 ## About the author
