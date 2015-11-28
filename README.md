@@ -27,6 +27,14 @@ The `UltrasonicSensor` class allows measuring the distance of an object using th
 This class ensures reliable measurement, also for continuous measuring, even though this hardware module has some very unique characteristics (e.g. such as initialization time).
 
 
+### RFID reader
+
+The `RfidReader` class allows you to read the content of an RFID card. The RFID-RC522 reader must be connected to an Arduino board, 
+and the Arduino must be connected to the Windows IoT Core device via I2C. When an RFID card is scanned, the Arduino pulls up a GPIO pin
+of the Windows IoT Core device that is monitored by the `RfidReader` class, which in turn sends an I2C command to the Arduino 
+to retrieve the previous read content of the card.
+
+
 ### Camera
 
 The `Camera` class allows creating photos using the camera attached to the Windows IoT Core device. It was tested with a Logitech C910 HD Pro Webcam which 
