@@ -148,6 +148,7 @@
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
     <Compile Include="PushButton.cs" />
+    <Compile Include="RfidReader.cs" />
     <Compile Include="Speaker.cs" />
     <Compile Include="UltrasonicSensor.cs" />
     <Content Include="Properties\Wicip.Library.rd.xml" />

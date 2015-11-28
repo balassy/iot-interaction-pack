@@ -28,5 +28,7 @@
 		<Setter Property="VisualStateNormalMinWidth" Value="{StaticResource NormalMinWidth}" />
 		<Setter Property="VisualStateWideMinWidth" Value="{StaticResource WideMinWidth}" />
 	</Style>
+	
+	<BitmapImage x:Key="imgRfidTag" UriSource="Images/RfidTag.png" />
 
 </ResourceDictionary>

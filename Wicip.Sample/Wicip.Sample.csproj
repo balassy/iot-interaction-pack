@@ -135,6 +135,7 @@
     <Compile Include="ViewModels\LedPageViewModel.cs" />
     <Compile Include="ViewModels\NotifyTaskCompletion.cs" />
     <Compile Include="ViewModels\PushButtonPageViewModel.cs" />
+    <Compile Include="ViewModels\RfidPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\UltrasonicSensorPageViewModel.cs" />
     <Compile Include="Views\CameraPage.xaml.cs">
@@ -148,6 +149,9 @@
     </Compile>
     <Compile Include="Views\PushButtonPage.xaml.cs">
       <DependentUpon>PushButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RfidPage.xaml.cs">
+      <DependentUpon>RfidPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -175,6 +179,7 @@
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Content Include="Images\RfidTag.png" />
     <EmbeddedResource Include="Fritzing\Push_button_bb.png" />
     <EmbeddedResource Include="Fritzing\Push_button_schem.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -217,6 +222,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PushButtonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RfidPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
