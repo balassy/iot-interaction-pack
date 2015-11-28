@@ -46,6 +46,9 @@
 				<Controls:GpioPinSelector SelectedValue="{Binding PinNumber, Mode=TwoWay}" IsEnabled="{Binding IsAvailable}" />
 				<Button Content="Start monitoring" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartMonitor_Click"  IsEnabled="{Binding IsAvailable}" />
 			</StackPanel>
+
+			<TextBlock x:Name="txbCardContentPrompt" Text="Card content:" Grid.Row="1" Grid.Column="0" Margin="10, 20" Visibility="Collapsed" />
+			<TextBlock x:Name="txbCardContent" Text="{Binding CardContent}" Grid.Row="1" Grid.Column="1" Margin="10, 20" Visibility="Collapsed" />
 		</Grid>		
 		
 	</Grid>

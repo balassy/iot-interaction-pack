@@ -149,6 +149,7 @@
     </CodeAnalysisDictionary>
     <Compile Include="PushButton.cs" />
     <Compile Include="RfidReader.cs" />
+    <Compile Include="RfidCardScannedEventArgs.cs" />
     <Compile Include="Speaker.cs" />
     <Compile Include="UltrasonicSensor.cs" />
     <Content Include="Properties\Wicip.Library.rd.xml" />

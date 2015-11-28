@@ -26,5 +26,19 @@
 				base.RaisePropertyChanged();
 			}
 		}
+
+
+		private string cardContent;
+
+		public string CardContent
+		{
+			get { return this.cardContent; }
+			set
+			{
+				this.cardContent = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
 	}
 }
