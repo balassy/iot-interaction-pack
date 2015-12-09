@@ -54,6 +54,13 @@
 					</StackPanel>
 				</Controls:HamburgerButtonInfo>
 
+				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RfidPage">
+					<StackPanel Orientation="Horizontal">
+						<Image Width="48" Height="48" Source="{StaticResource imgRfidTag}" />
+						<TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="RFID reader" />
+					</StackPanel>
+				</Controls:HamburgerButtonInfo>
+
 				<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:CameraPage">
 					<StackPanel Orientation="Horizontal">
 						<SymbolIcon Width="48" Height="48" Symbol="Camera" />
