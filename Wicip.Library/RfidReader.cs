@@ -10,9 +10,9 @@ namespace Wicip
 {
 	public sealed class RfidReader : GpioDeviceBase, IDisposable
 	{
-		private const int ARDUINO_ADDRESS = 0x40;
+		private const int ARDUINO_ADDRESS = 0x42;
 
-		private const byte GET_CARD_CONTENT_COMMAND = 0x01;
+		private byte[] GET_CARD_CONTENT_COMMAND = new byte[] { 0x03, 0x00, 0x00 };
 
 		public event EventHandler<RfidCardScannedEventArgs> CardScanned;
 
@@ -60,7 +60,7 @@ namespace Wicip
 		{
 			GpioController controller = GpioController.GetDefault();
 			this.pin = controller.OpenPin( pinNumber );
-			this.pin.SetDriveMode( GpioPinDriveMode.InputPullDown );
+			this.pin.SetDriveMode( GpioPinDriveMode.Input );
 			this.pin.ValueChanged += this.OnPinValueChanged;
 		}
 
@@ -72,11 +72,14 @@ namespace Wicip
 				// Do anything only if there is at least one subscriber.
 				if( this.CardScanned != null )
 				{
+					// NOTE: We don't use I2cDevice.WriteRead as Arduino does not work with it.
+					this.arduino.Write( GET_CARD_CONTENT_COMMAND );
+
 					byte[] rawCardContent = new byte[ 4 ];
-					I2cTransferResult transferResult = this.arduino.WriteReadPartial( new byte[ GET_CARD_CONTENT_COMMAND ], rawCardContent );
+					I2cTransferResult transferResult = this.arduino.ReadPartial( rawCardContent );
 					if( transferResult.Status == I2cTransferStatus.FullTransfer )
 					{
-						string cardContent = Encoding.UTF8.GetString( rawCardContent );
+						string cardContent = BitConverter.ToString( rawCardContent );
 						this.CardScanned( this, new RfidCardScannedEventArgs { CardContent = cardContent } );
 					}
 				}
