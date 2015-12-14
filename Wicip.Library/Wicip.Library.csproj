@@ -143,6 +143,8 @@
     <Compile Include="Camera.cs" />
     <Compile Include="GpioDeviceBase.cs" />
     <Compile Include="Led.cs" />
+    <Compile Include="Microphone.cs" />
+    <Compile Include="MicrophonePrivacyException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <CodeAnalysisDictionary Include="..\CustomDictionary.xml">
       <Link>CustomDictionary.xml</Link>
