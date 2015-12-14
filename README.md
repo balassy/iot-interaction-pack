@@ -50,7 +50,7 @@ text, and your device will read it loud on a male or female voice.
 
 ### Voice recognition
 
-Coming soon...
+The `Microphone` class allows you to easily integrate the speech-to-text capabilities of Windows into your application even if it runs on Windows IoT Core.
 
 
 ## For contributors
