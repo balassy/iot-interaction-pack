@@ -1,16 +1,19 @@
 ﻿<Page
-    x:Class="Wicip.Sample.Views.CameraPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Wicip.Sample.Views"
-		xmlns:Behaviors="using:Template10.Behaviors"
-		xmlns:Controls="using:Template10.Controls"
+		x:Class="Wicip.Sample.Views.CameraPage"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="using:Wicip.Sample.Views"
+		xmlns:Controls="using:Wicip.Sample.Controls"
 		xmlns:Converters="using:Wicip.Sample.Converters"
-		xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"	
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+		xmlns:ViewModels="using:Wicip.Sample.ViewModels"	
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d">
 
+	<Page.DataContext>
+		<ViewModels:CameraPageViewModel x:Name="viewModel" />
+	</Page.DataContext>
+	
 	<Page.Resources>
 		<Converters:CameraResolutionConverter x:Key="resolutionConverter" />
 		<Converters:CameraResolutionListItemConverter x:Key="resolutionsConverter" />
@@ -23,12 +26,7 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<Controls:PageHeader Frame="{x:Bind Frame, Mode=OneWay}" Content="Camera">
-			<!-- Hide the ellipsis menu on the right side of the PageHeader -->
-			<Interactivity:Interaction.Behaviors>
-				<Behaviors:EllipsisBehavior Visibility="Collapsed" />
-			</Interactivity:Interaction.Behaviors>
-		</Controls:PageHeader>
+		<Controls:PageHeader Text="Camera" />
 
 		<StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -41,14 +39,19 @@
 				<TextBlock Text="{Binding MaxResolution, Converter={StaticResource resolutionConverter}}" FontWeight="Bold" />
 			</StackPanel>
 
-			<Border BorderThickness="1" BorderBrush="#FF000000" Width="640" Height="480" Margin="20">
-				<Image Source="{Binding PhotoImage.Result}" Width="640" Height="480" />
+			<Border BorderThickness="1" BorderBrush="#FF000000" Width="320" Height="240" Margin="20">
+				<CaptureElement x:Name="previewElement" Width="320" Height="240" />
+			</Border>
+
+			<Border BorderThickness="1" BorderBrush="#FF000000" Width="320" Height="240" Margin="20">
+				<Image Source="{Binding PhotoImage.Result}" Width="320" Height="230" />
 			</Border>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 				<TextBlock Margin="5">Resolution: </TextBlock>
 				<ComboBox x:Name="cboResolutions" ItemsSource="{Binding Resolutions, Converter={StaticResource resolutionsConverter}}" SelectedValue="{Binding SelectedResolution, Mode=TwoWay}" DisplayMemberPath="Key" SelectedValuePath="Value" Margin="10, 0, 10, 0"></ComboBox>
-				<Button x:Name="btnTakePhoto" Content="Take photo" Click="btnTakePhoto_Click" />				
+				<Button Content="Start preview" Click="btnStartPreview_Click" />
+				<Button Content="Take photo" Click="btnTakePhoto_Click" Margin="10, 0" />
 			</StackPanel>
 
 			<StackPanel HorizontalAlignment="Center">

@@ -1,13 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Wicip.Sample.ViewModels
+﻿namespace Wicip.Sample.ViewModels
 {
-	public class UltrasonicSensorPageViewModel : Template10.Mvvm.ViewModelBase
+	internal class UltrasonicSensorPageViewModel : Template10.Mvvm.ViewModelBase
 	{
+		private bool isAvailable;
+
+		public bool IsAvailable
+		{
+			get { return this.isAvailable; }
+			set
+			{
+				this.isAvailable = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
+		private int triggerPinNumber = 13;
+
+		public int TriggerPinNumber
+		{
+			get { return this.triggerPinNumber; }
+			set
+			{
+				this.triggerPinNumber = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
+		private int echoPinNumber = 26;
+
+		public int EchoPinNumber
+		{
+			get { return this.echoPinNumber; }
+			set
+			{
+				this.echoPinNumber = value;
+				base.RaisePropertyChanged();
+			}
+		}
+
+
 		private double? distance;
 
 		public double? Distance

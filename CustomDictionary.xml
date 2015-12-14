@@ -1,7 +1,12 @@
 <Dictionary>
 	<Words>
 		<Recognized>
+			<Word>Gpio</Word>
+			<Word>Rfid</Word>
 			<Word>Wicip</Word>
 		</Recognized>
+		<DiscreteExceptions>
+			<Term>TurnOff</Term>
+		</DiscreteExceptions>
 	</Words>
 </Dictionary>

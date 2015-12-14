@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 
 namespace Wicip.Sample.Views
 {
-	public sealed partial class VoiceRecognitionPage : Page
+	public sealed partial class VoiceRecognitionPage : Page, IDisposable
 	{
 		private Microphone microphone;
 
+
 		public VoiceRecognitionPage()
 		{
-			this.InitializeComponent();
-			
+			this.InitializeComponent();			
+		}
+
+
+		public void Dispose()
+		{
+			if( this.microphone != null )
+			{
+				this.microphone.Dispose();
+			}
 		}
 
 
@@ -33,6 +31,13 @@ namespace Wicip.Sample.Views
 
 			this.microphone = new Microphone();
 			await this.microphone.InitializeAsync();
+		}
+
+
+		protected override void OnNavigatingFrom( NavigatingCancelEventArgs e )
+		{
+			this.Dispose();
+			base.OnNavigatingFrom( e );
 		}
 
 

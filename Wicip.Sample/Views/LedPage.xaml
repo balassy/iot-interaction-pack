@@ -1,0 +1,55 @@
+﻿<Page
+		x:Class="Wicip.Sample.Views.LedPage"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="using:Wicip.Sample.Views"
+		xmlns:Controls="using:Wicip.Sample.Controls"
+		xmlns:ViewModels="using:Wicip.Sample.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d">
+
+	<Page.DataContext>
+		<ViewModels:LedPageViewModel x:Name="viewModel" />
+	</Page.DataContext>	
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<Controls:PageHeader Text="LED" />
+
+		<StackPanel Orientation="Vertical" Grid.Row="1" >
+			<TextBlock Text="This example shows how you can turn a light-emitting diode (LED) on or off." TextWrapping="Wrap" Margin="15, 15, 0, 0" />
+			<Controls:GpioMissingWarning Margin="15, 15, 0, 0" />
+		</StackPanel>
+
+		<Grid Grid.Row="2" Margin="5, 15, 15, 15">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="GPIO pin:" Grid.Row="0" Grid.Column="0" Margin="10, 15" />
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="10">
+				<Controls:GpioPinSelector SelectedValue="{Binding PinNumber, Mode=TwoWay}" IsEnabled="{Binding IsAvailable}" />
+				<Button Content="Start control" Grid.Row="1" Grid.Column="1" Margin="10, 0" Click="btnStartControl_Click"  IsEnabled="{Binding IsAvailable}" />
+			</StackPanel>
+
+			<TextBlock x:Name="txbIsOnPrompt" Text="LED state:" Grid.Row="1" Grid.Column="0" Margin="10, 20" Visibility="Collapsed" />
+			<ToggleSwitch x:Name="tsIsOn" IsOn="{Binding IsOn, Mode=TwoWay}" Visibility="Collapsed" Toggled="tsIsOn_Toggled" Grid.Row="1" Grid.Column="1" Margin="10" />
+		</Grid>
+
+	</Grid>
+</Page>

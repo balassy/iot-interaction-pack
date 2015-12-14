@@ -10,4 +10,8 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "Wicip.Sample.Views.VoiceRecognitionPage.#Bindings", Justification = "Generated code" )]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "Wicip.Sample.Views.SettingsPage+XamlBindingSetters", Justification = "Generated code" )]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "Wicip.Sample.Views.SettingsPage.#Bindings", Justification = "Generated code" )]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "Wicip.Sample.Views.PushButtonPage+XamlBindingSetters", Justification = "Generated code" )]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "Wicip.Sample.Views.PushButtonPage.#Bindings", Justification = "Generated code" )]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "Wicip.Sample.Views.LedPage+XamlBindingSetters", Justification = "Generated code" )]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Scope = "member", Target = "Wicip.Sample.Views.LedPage.#Bindings", Justification = "Generated code" )]
 

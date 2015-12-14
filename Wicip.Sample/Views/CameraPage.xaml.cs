@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Wicip.Sample.ViewModels;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Media.MediaProperties;
 using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -25,15 +11,10 @@ namespace Wicip.Sample.Views
 	{
 		private Camera camera;
 
-		private CameraPageViewModel viewModel;
-
 
 		public CameraPage()
 		{
 			this.InitializeComponent();
-
-			this.viewModel = new CameraPageViewModel();
-			this.DataContext = this.viewModel;
 		}
 
 
@@ -62,5 +43,10 @@ namespace Wicip.Sample.Views
 			Shell.SetBusyVisibility( Visibility.Collapsed );
 		}
 
+		private async void btnStartPreview_Click( object sender, RoutedEventArgs e )
+		{
+			this.previewElement.Source = this.camera.CaptureManager;
+			await this.camera.CaptureManager.StartPreviewAsync();
+		}
 	}
 }
